@@ -205,6 +205,9 @@
                   <Format format="##/##/####" subtype="-1" type="5"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ftDataFocusLost"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

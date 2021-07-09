@@ -233,9 +233,9 @@ public class listaFuncionarios extends javax.swing.JDialog {
             
             listarDados();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Ocorreu um erro ao selecionar os dados dos funcionários!" +
+            JOptionPane.showMessageDialog(this, "Não foi possível editar este funcionário!" +
                 System.lineSeparator() +
-                "Detalhes do erro: " + e);
+                "Detalhes do erro: " + e.getMessage());
         }
     }//GEN-LAST:event_btEditarActionPerformed
 
@@ -263,9 +263,9 @@ public class listaFuncionarios extends javax.swing.JDialog {
             
             listarDados();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Ocorreu um erro ao selecionar os dados dos funcionários!" +
+            JOptionPane.showMessageDialog(this, "Não foi possível excluir este funcionário!" +
                 System.lineSeparator() +
-                "Detalhes do erro: " + e);
+                "Detalhes do erro: " + e.getMessage());
         }
     }//GEN-LAST:event_btExcluirActionPerformed
 

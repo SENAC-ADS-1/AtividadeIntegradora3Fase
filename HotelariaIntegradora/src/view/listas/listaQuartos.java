@@ -261,9 +261,9 @@ public class listaQuartos extends javax.swing.JDialog {
             
             listarDados();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Ocorreu um erro ao selecionar os dados dos quartos!" +
+            JOptionPane.showMessageDialog(this, "Não foi possível editar este quarto!" +
                 System.lineSeparator() +
-                "Detalhes do erro: " + e);
+                "Detalhes do erro: " + e.getMessage());
         }
     }//GEN-LAST:event_btEditarActionPerformed
 
@@ -291,9 +291,9 @@ public class listaQuartos extends javax.swing.JDialog {
             
             listarDados();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Ocorreu um erro ao selecionar os dados dos quartos!" +
+            JOptionPane.showMessageDialog(this, "Não foi possível excluir este quarto!" +
                 System.lineSeparator() +
-                "Detalhes do erro: " + e);
+                "Detalhes do erro: " + e.getMessage());
         }
     }//GEN-LAST:event_btExcluirActionPerformed
 

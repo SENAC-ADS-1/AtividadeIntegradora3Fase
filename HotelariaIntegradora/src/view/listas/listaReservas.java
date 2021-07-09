@@ -5,6 +5,7 @@ import controller.daoReserva;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import javax.swing.JOptionPane;
 import model.Quarto;
 import model.Reserva;
@@ -138,6 +139,11 @@ public class listaReservas extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        ftData.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ftDataFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnListaLayout = new javax.swing.GroupLayout(pnLista);
         pnLista.setLayout(pnListaLayout);
@@ -287,9 +293,9 @@ public class listaReservas extends javax.swing.JDialog {
             
             listarDados();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Ocorreu um erro ao selecionar os dados da reserva!" +
+            JOptionPane.showMessageDialog(this, "Não foi possível editar esta reserva!" +
                 System.lineSeparator() +
-                "Detalhes do erro: " + e);
+                "Detalhes do erro: " + e.getMessage());
         }
     }//GEN-LAST:event_btEditarActionPerformed
 
@@ -317,9 +323,9 @@ public class listaReservas extends javax.swing.JDialog {
             
             listarDados();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Ocorreu um erro ao selecionar os dados da reserva!" +
+            JOptionPane.showMessageDialog(this, "Não foi possível excluir esta reserva!" +
                 System.lineSeparator() +
-                "Detalhes do erro: " + e);
+                "Detalhes do erro: " + e.getMessage());
         }
     }//GEN-LAST:event_btExcluirActionPerformed
 
@@ -353,6 +359,19 @@ public class listaReservas extends javax.swing.JDialog {
             return;
         }
     }//GEN-LAST:event_tfCodigoQuartoFocusLost
+
+    private void ftDataFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftDataFocusLost
+        if (ftData.getText().replace("/", "").trim().isEmpty()) {
+            return;
+        }
+        
+        try { 
+            LocalDate data = LocalDate.parse(ftData.getText(), dateParser);
+        } catch (DateTimeParseException e) {
+            JOptionPane.showMessageDialog(this, "Data inválida!");
+            ftData.setText("");
+        }
+    }//GEN-LAST:event_ftDataFocusLost
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

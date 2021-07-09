@@ -26,7 +26,7 @@ public class cadastroReservas extends javax.swing.JDialog {
     public cadastroReservas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        tfCodigoQuarto.requestFocus();
+        ftData.requestFocus();
     }
     
     public cadastroReservas(java.awt.Frame parent, boolean modal, Reserva reserva) {
@@ -38,7 +38,7 @@ public class cadastroReservas extends javax.swing.JDialog {
             preencherCampos();
         }
         
-        tfCodigoQuarto.requestFocus();
+        ftData.requestFocus();
     }
     
     private void limparCampos() {
@@ -103,11 +103,6 @@ public class cadastroReservas extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de reserva");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
         pnBackground.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -153,9 +148,6 @@ public class cadastroReservas extends javax.swing.JDialog {
         lbValor.setText("Valor");
 
         tfValor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tfValorKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tfValorKeyReleased(evt);
             }
@@ -176,37 +168,35 @@ public class cadastroReservas extends javax.swing.JDialog {
             pnCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnCamposLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnCamposLayout.createSequentialGroup()
                         .addGroup(pnCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbCodigo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(348, 348, 348)
                         .addGroup(pnCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ftData, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbData)))
-                    .addGroup(pnCamposLayout.createSequentialGroup()
-                        .addComponent(tfCodigoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfNomeFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
-                    .addGroup(pnCamposLayout.createSequentialGroup()
-                        .addComponent(tfCodigoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfNomeCliente))
-                    .addGroup(pnCamposLayout.createSequentialGroup()
-                        .addGroup(pnCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnCamposLayout.createSequentialGroup()
-                                .addGroup(pnCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfCodigoQuarto, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbQuarto))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbValor)
-                                    .addComponent(tfValor, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lbFuncionario)
-                            .addComponent(lbCliente))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addGroup(pnCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(pnCamposLayout.createSequentialGroup()
+                            .addComponent(tfCodigoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(tfNomeFuncionario))
+                        .addGroup(pnCamposLayout.createSequentialGroup()
+                            .addGroup(pnCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tfCodigoQuarto, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbQuarto))
+                            .addGap(18, 18, 18)
+                            .addGroup(pnCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbValor)
+                                .addComponent(tfValor, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbFuncionario)
+                        .addComponent(lbCliente)
+                        .addGroup(pnCamposLayout.createSequentialGroup()
+                            .addComponent(tfCodigoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(tfNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnCamposLayout.setVerticalGroup(
             pnCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,7 +233,7 @@ public class cadastroReservas extends javax.swing.JDialog {
                 .addGroup(pnCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfCodigoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         btSalvar.setText("Salvar");
@@ -329,19 +319,15 @@ public class cadastroReservas extends javax.swing.JDialog {
             
             limparCampos();
 
-            JOptionPane.showMessageDialog(this, "Os dados do cliente foram salvos!");
+            JOptionPane.showMessageDialog(this, "Os dados da reserva foram salvos!");
 
             dispose();
         } catch (SQLException e) {
-           JOptionPane.showMessageDialog(this, "Ocorreu um erro ao salvar os dados do cliente!" + 
+           JOptionPane.showMessageDialog(this, "Ocorreu um erro ao salvar os dados da reserva!" + 
                                                System.lineSeparator() + 
                                                "Detalhes do erro: " + e);
         }
     }//GEN-LAST:event_btSalvarActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
-    }//GEN-LAST:event_formWindowOpened
 
     private void tfCodigoQuartoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCodigoQuartoFocusLost
         if (tfCodigoQuarto.getText().trim().isEmpty()) {
@@ -445,25 +431,6 @@ public class cadastroReservas extends javax.swing.JDialog {
 
         tfNomeFuncionario.setText(funcionario.getNome());
     }//GEN-LAST:event_tfCodigoFuncionarioFocusLost
-
-    private void tfValorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfValorKeyPressed
-        if (tfValor.getText().trim().isEmpty()) {
-            return;
-        }
-        
-        tfValor.setText(tfValor.getText().trim().replace(",", "."));
-        
-        try {
-            double valida = Double.parseDouble(tfValor.getText().trim());
-            if (valida <= 0) { 
-                throw new NumberFormatException();
-            }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Valor inválido!");
-            tfValor.setText("");
-            tfValor.requestFocus();
-        }
-    }//GEN-LAST:event_tfValorKeyPressed
 
     private void tfValorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfValorKeyReleased
         if (tfValor.getText().trim().isEmpty()) {

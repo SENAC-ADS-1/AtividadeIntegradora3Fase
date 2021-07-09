@@ -19,12 +19,17 @@ public class cadastroQuartos extends javax.swing.JDialog {
     public cadastroQuartos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        carregarTipos();
+        
         tfValor.requestFocus();
     }
     
     public cadastroQuartos(java.awt.Frame parent, boolean modal, Quarto quarto) {
         super(parent, modal);
         initComponents();
+        
+        carregarTipos();
         
         if (quarto != null) {
             this.quarto = quarto;
@@ -74,11 +79,6 @@ public class cadastroQuartos extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de quartos");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
         pnBackground.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -114,16 +114,11 @@ public class cadastroQuartos extends javax.swing.JDialog {
                             .addComponent(cbTipoQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnCadastroLayout.createSequentialGroup()
-                                .addComponent(lbValor)
-                                .addGap(0, 172, Short.MAX_VALUE))
-                            .addComponent(tfValor)))
-                    .addGroup(pnCadastroLayout.createSequentialGroup()
-                        .addGroup(pnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbCodigo))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(lbValor)
+                            .addComponent(tfValor, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbCodigo))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         pnCadastroLayout.setVerticalGroup(
             pnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +138,7 @@ public class cadastroQuartos extends javax.swing.JDialog {
                         .addGroup(pnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cbTipoQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         btSalvar.setText("Salvar");
@@ -214,10 +209,6 @@ public class cadastroQuartos extends javax.swing.JDialog {
                                                "Detalhes do erro: " + e);
         }
     }//GEN-LAST:event_btSalvarActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        carregarTipos();
-    }//GEN-LAST:event_formWindowOpened
 
     private void tfValorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfValorKeyReleased
         if (tfValor.getText().trim().isEmpty()) {
